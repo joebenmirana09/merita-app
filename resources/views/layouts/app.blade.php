@@ -62,10 +62,11 @@
                             class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i
                                 class="feather icon-menu font-large-1"></i></a></li>
                     <li class="nav-item"><a class="navbar-brand"
-                            href="../../../html/ltr/vertical-menu-template/index.html"><img class="brand-logo logo-sm"
-                                alt="stack admin logo" src="../../../app-assets/images/logo/MeritaApp.png">
+                            href="../../../html/ltr/vertical-menu-template/index.html"><img class="brand-logo"
+                                alt="stack admin logo" src="../../../app-assets/images/logo/MeritaEMR_logo2.png"
+                                width="200">
                         </a></li>
-                    <li class="nav-item d-md-none"><a class="nav-link open-navbar-container" data-toggle="collapse"
+                    <li class=" nav-item d-md-none"><a class="nav-link open-navbar-container" data-toggle="collapse"
                             data-target="#navbar-mobile"><i class="fa fa-ellipsis-v"></i></a></li>
                 </ul>
             </div>
