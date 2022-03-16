@@ -1,0 +1,26 @@
+/*================================================================================
+	Item Name: Stack - Responsive Admin Theme
+	Author: PIXINVENT
+	Author URL: http://www.themeforest.net/user/pixinvent
+================================================================================
+
+NOTE:
+------
+PLACE HERE YOUR OWN SCSS CODES AND IF NEEDED, OVERRIDE THE STYLES FROM THE OTHER STYLESHEETS.
+WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BETTER LIKE THIS.  */
+
+fieldset#steps-uid-0-p-1 .table-responsive {
+    display: table;
+}
+
+.loginbox .card-header.border-0 {
+    background-color: transparent!important;
+}
+.card.border-grey.border-lighten-3.px-1.py-1.m-0.loginbox {
+    background-color: #eaeff1e0;
+    padding: 7px!important;
+    border-radius: 8px;
+}
+.loginwrapper {
+	border-radius: 8px;
+}
