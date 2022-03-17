@@ -54,6 +54,7 @@ class UserController extends Controller
                                 'classification' => 'patient',
                                 'patientCode' => $patientInfo->patientcode,
                                 'patientId' => $patientInfo->id,
+                                'patient_image' => $patientInfo->patient_image,
                             ]);
                             $data = session()->all();
                             return redirect('/dashboard');

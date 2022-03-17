@@ -45,6 +45,44 @@
                                                     name="main_id">
                                                 <input type="hidden" name="patientcode"
                                                     value="{{$data['patientCode']}}">
+                                                <input type="hidden" name="patient_image" id="patient_image">
+                                                <div class="row">
+                                                    <div class="col-lg-2 col-md-6 col-sm-12">
+                                                        <div class="form-group">
+                                                            <!-- Button trigger modal -->
+                                                            <button type="button"
+                                                                class="btn btn-outline-primary block btn-lg take-picture"
+                                                                data-toggle="modal" onclick="openCamera()"
+                                                                data-target="#default">
+                                                                Take a Picture
+                                                            </button>
+
+                                                            <!-- Modal -->
+                                                            <div class="modal fade text-left" id="default" tabindex="-1"
+                                                                role="dialog" aria-labelledby="myModalLabel1"
+                                                                aria-hidden="true">
+                                                                <div class="modal-dialog" role="document">
+                                                                    <div
+                                                                        class="modal-content d-flex justify-content-center align-items-center">
+                                                                        <div class="modal-header">
+                                                                            <h4 class="modal-title" id="myModalLabel1">
+                                                                                Take a Picture</h4>
+                                                                            <button type="button" class="close"
+                                                                                data-dismiss="modal" aria-label="Close">
+                                                                                <span aria-hidden="true">&times;</span>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="camera"></div>
+                                                                        <button type="button"
+                                                                            class="btn btn-solid btn-primary my-2"
+                                                                            onclick="saveImage()">Save</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="image-taken"></div>
+                                                    </div>
+                                                </div>
                                                 <div class=" row">
                                                     <div class="col-md-4">
                                                         <div class="form-group">
@@ -2348,7 +2386,28 @@
         </div>
     </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.26/webcam.min.js"></script>
 <script type="text/javascript">
+function openCamera() {
+    Webcam.set({
+        width: 250,
+        height: 200,
+        image_format: 'jpeg',
+        jpeg_quality: 100
+    });
+
+    Webcam.attach('.camera');
+}
+
+function saveImage() {
+    document.querySelector('.close').click();
+    Webcam.snap(function(data_uri) {
+        $("#patient_image").val(data_uri);
+        document.querySelector('.image-taken').innerHTML = '<img src="' + data_uri + '"/>';
+        document.querySelector('.take-picture').innerHTML = 'Recapture';
+    });
+}
+
 function isTravelAbroadRecently(e) {
     if (e.value == 1) {
         let isTravelElement = document.querySelectorAll('.travel');

@@ -317,7 +317,33 @@ class PatientController extends Controller
     {
         $data = session()->all();
         // UPDATE MAST_PATIENT TABLE
+        $name =
+            time() .
+            '.' .
+            explode(
+                '/',
+                explode(
+                    ':',
+                    substr(
+                        $request->patient_image,
+                        0,
+                        strpos($request->patient_image, ';')
+                    )
+                )[1]
+            )[1];
+
+        Image::make($request->patient_image)->save(
+            public_path('app-assets/images/profiles/') . $name
+        );
+
+        $userPhoto =
+            public_path('app-assets/images/profiles/') . $data['patient_image'];
+        if (file_exists($userPhoto)) {
+            @unlink($userPhoto);
+        }
+
         $mast_patient = Patient::where('id', '=', $request->main_id)->first();
+        $mast_patient->patient_image = $name;
         $mast_patient->firstname = $request->firstName;
         $mast_patient->lastname = $request->lastName;
         $mast_patient->middlename = $request->middleName;
