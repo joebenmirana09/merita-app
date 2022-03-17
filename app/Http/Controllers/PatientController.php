@@ -331,7 +331,7 @@ class PatientController extends Controller
 
         // UPDATE MAST PATIENT INFO
         $save_patient_info = DB::update(
-            'update mast_patientinfo set address = ?, contactno = ?, occupation = ?, nationality = ?, religion = ?, religion_others = ?, maritalstatus = ?, agency = ?, agency_address = ?, country_destination = ?, medical_package = ?, vessel = ?, passportno = ?, srbno = ?, birthdate = ?, birthplace = ?',
+            'update mast_patientinfo set address = ?, contactno = ?, occupation = ?, nationality = ?, religion = ?,  maritalstatus = ?, agency = ?, agency_address = ?, country_destination = ?, medical_package = ?, vessel = ?, passportno = ?, srbno = ?, birthdate = ?, birthplace = ? where main_id = ?',
             [
                 $request->homeAdress,
                 $request->phoneNumber,
@@ -438,7 +438,7 @@ class PatientController extends Controller
 
         // UPDATE DECLARATION FORM
         $save_declaration_form = DB::update(
-            'update declaration_form set travelled_abroad_recently = ?, area_visited = ?, contact_with_people_being_infected__suspected_diagnose_with_cov = ?, travel_arrival = ?, travel_return = ?, relationship_with_last_people = ?, last_contact_date = ?, fever = ?, cough = ?, shortness_of_breath = ?, persistent_pain_in_chess = ?',
+            'update declaration_form set travelled_abroad_recently = ?, area_visited = ?, contact_with_people_being_infected__suspected_diagnose_with_cov = ?, travel_arrival = ?, travel_return = ?, relationship_with_last_people = ?, last_contact_date = ?, fever = ?, cough = ?, shortness_of_breath = ?, persistent_pain_in_chess = ? where main_id = ?',
             [
                 $request->travelled_abroad_recently,
                 $request->area_visited,

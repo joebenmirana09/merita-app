@@ -91,8 +91,8 @@ $(".steps-validation").steps({
         return form.valid();
     },
     onFinished: function (event, currentIndex)
-    {   
-       this.submit();
+    {       
+        this.submit();
     }
 });
 

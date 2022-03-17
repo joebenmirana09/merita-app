@@ -54,7 +54,7 @@
                                                         <div class="form-group">
                                                             <!-- Button trigger modal -->
                                                             <button type="button"
-                                                                class="btn btn-outline-primary block btn-lg"
+                                                                class="btn btn-outline-primary block btn-lg take-picture"
                                                                 data-toggle="modal" onclick="openCamera()"
                                                                 data-target="#default">
                                                                 Take a Picture
@@ -2040,6 +2040,7 @@ function saveImage() {
     Webcam.snap(function(data_uri) {
         $("#patient_image").val(data_uri);
         document.querySelector('.image-taken').innerHTML = '<img src="' + data_uri + '"/>';
+        document.querySelector('.take-picture').innerHTML = 'Recapture';
     });
 }
 

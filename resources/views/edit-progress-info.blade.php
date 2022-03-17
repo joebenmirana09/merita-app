@@ -31,8 +31,8 @@
                             <div class="card">
                                 <div class="card-content collapse show">
                                     <div class="card-body">
-                                        <form action="/save-info" class="steps-validation wizard-circle"
-                                            id="patient-form" method="POST" action="/update-patient-info">
+                                        <form action="/update-patient-info" class="steps-validation wizard-circle"
+                                            id="patient-form" method="POST">
                                             <!-- Step 1 -->
                                             <h6>Personal Info</h6>
                                             <!-- <hr> -->
@@ -868,7 +868,7 @@
                                                                                     name="feel_healthy"
                                                                                     id="feel_healthy1" @php echo
                                                                                     $medicalHistory->feel_healthy
-                                                                                == 0
+                                                                                == 1
                                                                                 ? "checked" : "" @endphp>
                                                                                 <label class="custom-control-label"
                                                                                     for="feel_healthy1">YES</label>

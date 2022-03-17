@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+    {{$classification}}
     @if($classification == 'patient')
     <script>
     window.location = "/progress-patient-info";

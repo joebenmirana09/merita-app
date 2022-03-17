@@ -148,7 +148,7 @@
                                                                         <label for="account-e-mail">Home Address</label>
                                                                         <input disabled type="text" class="form-control"
                                                                             id="account-e-mail"
-                                                                            value="{{$patientInfo->address}}m"
+                                                                            value="{{$patientInfo->address}}"
                                                                             required />
                                                                     </div>
                                                                 </div>

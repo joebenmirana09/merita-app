@@ -21,13 +21,20 @@ class UserController extends Controller
     {
         //VALIDATE REQUEST
         $request->validate([
-            'name' => 'required',
             'password' => 'required',
         ]);
 
-        $userInfo = User::where('username', '=', $request->name)->first();
-        $agencyInfo = Agency::where('agencyname', '=', $request->name)->first();
-        $patientInfo = Patient::where('username', '=', $request->name)->first();
+        $userInfo = User::where('username', '=', $request->username)->first();
+        $agencyInfo = Agency::where(
+            'agencyname',
+            '=',
+            $request->username
+        )->first();
+        $patientInfo = Patient::where(
+            'email',
+            '=',
+            $request->username
+        )->first();
 
         // IF THE USERNAME IS NOT ACCESS IN EMPLOYEE TABLE
         if (!$userInfo) {
@@ -35,7 +42,7 @@ class UserController extends Controller
             if (!$agencyInfo) {
                 // IF THE USERNAME IS NOT ACCESS IN PATIENT TABLE
                 if (!$patientInfo) {
-                    return back()->with('fail', 'Invalid Username or Password');
+                    return back()->with('fail', 'Invalid Email');
                 } else {
                     //check if the email is verify
                     //check password
@@ -57,10 +64,7 @@ class UserController extends Controller
                             );
                         }
                     } else {
-                        return back()->with(
-                            'fail',
-                            'Invalid Username or Password'
-                        );
+                        return back()->with('fail', 'Invalid Email');
                     }
                 }
             } else {
@@ -69,7 +73,6 @@ class UserController extends Controller
                     $request->session()->put([
                         'classification' => 'agency',
                         'agencyCode' => $agencyInfo->agencycode,
-                        'patientCode' => $patientInfo->patientcode,
                         'patientId' => $agencyInfo->id,
                     ]);
                     return redirect('/dashboard');
@@ -89,8 +92,6 @@ class UserController extends Controller
                         'lastname' => $userInfo->lastname,
                         'firstname' => $userInfo->firstname,
                         'employeeCode' => $userInfo->employeecode,
-                        'patientId' => $userInfo->id,
-                        'patientCode' => $patientInfo->patientcode,
                     ]);
                     return redirect('/dashboard');
                 } else {
@@ -102,8 +103,6 @@ class UserController extends Controller
                         'lastname' => $userInfo->lastname,
                         'firstname' => $userInfo->firstname,
                         'employeeCode' => $userInfo->employeecode,
-                        'patientId' => $userInfo->id,
-                        'patientCode' => $patientInfo->patientcode,
                     ]);
                     return redirect('/dashboard');
                 }
