@@ -1265,8 +1265,7 @@
         </div>
     </div>
 </div>
-
-<script type="text/javascript">
+<script>
 function hasTravelAbroad() {
     let isTravelAbroad = document.querySelectorAll('.isTravelAbroad');
     let travelElement = document.querySelectorAll('.travel');

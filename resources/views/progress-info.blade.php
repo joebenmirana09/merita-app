@@ -2,8 +2,6 @@
 
 
 @section('content')
-
-
 <!-- BEGIN: Content-->
 <div class="container">
     <div class="app-content content">
@@ -2022,8 +2020,9 @@
         </div>
     </div>
 </div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.26/webcam.min.js"></script>
-<script type="text/javascript">
+<script>
 function openCamera() {
     Webcam.set({
         width: 250,
@@ -2039,7 +2038,7 @@ function saveImage() {
     document.querySelector('.close').click();
     Webcam.snap(function(data_uri) {
         $("#patient_image").val(data_uri);
-        document.querySelector('.image-taken').innerHTML = '<img src="' + data_uri + '"/>';
+        document.querySelector('.image-taken').innerHTML = '<img src="' + data_uri + '" />';
         document.querySelector('.take-picture').innerHTML = 'Recapture';
     });
 }
@@ -2053,7 +2052,8 @@ function isTravelAbroadRecently(e) {
         }
     } else {
         let isTravelElement = document.querySelectorAll('.travel');
-        for (let index = 0; index < isTravelElement.length; index++) {
+        for (let
+                index = 0; index < isTravelElement.length; index++) {
             const element = isTravelElement[index];
             element.style.display = 'none';
         }
@@ -2061,8 +2061,8 @@ function isTravelAbroadRecently(e) {
 }
 
 function hasContactWithPeopleInfected(e) {
-    let element = document.querySelector('.show-if-contact');
-    console.log(element)
+    let
+        element = document.querySelector('.show-if-contact');
     if (e.value == 1) {
         element.style.display = 'block';
     } else {

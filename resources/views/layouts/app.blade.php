@@ -45,11 +45,6 @@
     <!-- BEGIN: Custom CSS-->
     <link rel="stylesheet" type="text/css" href="../../../assets/css/style.css">
     <!-- END: Custom CSS-->
-
-    <style>
-
-    </style>
-
 </head>
 <!-- END: Head-->
 
@@ -220,7 +215,6 @@
         </p>
     </footer>
     <!-- END: Footer-->
-
 
     <!-- BEGIN: Vendor JS-->
     <script src="../../../app-assets/vendors/js/vendors.min.js"></script>
